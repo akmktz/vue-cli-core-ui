@@ -1,0 +1,92 @@
+<template>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <router-link :to="{ name: user ? 'home' : 'welcome' }" class="navbar-brand">
+                {{ appName }}
+            </router-link>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarToggler" aria-controls="navbarToggler"
+                    aria-expanded="false" aria-label="toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarToggler">
+                <ul class="navbar-nav">
+                    <li v-if="user" class="nav-item">
+                        <router-link :to="{ name: 'home' }"
+                                     class="nav-link">Home</router-link>
+                    </li>
+                    <li v-if="user" class="nav-item">
+                        <router-link :to="{ name: 'about' }"
+                                     class="nav-link">About</router-link>
+                    </li>
+                </ul>
+                <ul></ul>
+                <ul class="navbar-nav ml-auto">
+                    <!--<locale-dropdown/>-->
+                    <!-- Authenticated -->
+                    <b-dropdown variant="lin1k" no-caret v-if="user" class="nav-item">
+                        <template slot="button-content">
+                            <a class="nav-link dropdown-toggle text-dark"
+                               href="#" role="button" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                <img :src="user.photo_url"
+                                     class="rounded-circle profile-photo mr-1">
+                                {{ user.name }}
+                            </a>
+                        </template>
+                        <b-dropdown-item>
+                            <router-link :to="{ name: 'profile' }"
+                                         class="dropdown-item pl-3">
+                                <!--<fa icon="cog" fixed-width/>-->
+                                settings
+                            </router-link>
+                        </b-dropdown-item>
+                        <b-dropdown-divider></b-dropdown-divider>
+                        <b-dropdown-item>
+                            <a @click.prevent="logout" class="dropdown-item pl-3"  href="#">
+                                <!--<fa icon="sign-out-alt" fixed-width/>-->
+                                logout
+                            </a>
+                        </b-dropdown-item>
+                    </b-dropdown>
+                    <!-- Guest -->
+                    <template v-else>
+                        <li class="nav-item">
+                            <router-link :to="{ name: 'login' }" class="nav-link" active-class="active">
+                                Login
+                            </router-link>
+                        </li>
+                        <li class="nav-item">
+                            <router-link :to="{ name: 'register' }" class="nav-link" active-class="active">
+                                Register
+                            </router-link>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</template>
+
+
+<script>
+export default {
+  data: () => ({
+    // appName: process.env.appName,
+    appName: 'Vue-Cli-Core-UI',
+    user: {
+      name: 'User',
+      photo_url: 'https://picsum.photos/25/25?image=0',
+    },
+  }),
+};
+</script>
+
+<style>
+    .navbar-dark .navbar-nav .nav-link.router-link-active {
+        color: white;
+    }
+</style>
