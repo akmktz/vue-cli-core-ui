@@ -27,30 +27,22 @@
                 <ul class="navbar-nav ml-auto">
                     <!--<locale-dropdown/>-->
                     <!-- Authenticated -->
-                    <b-dropdown variant="lin1k" no-caret v-if="user" class="nav-item">
+                    <b-dropdown variant="1" size="md" text="Large" class="m-2" v-if="user">
                         <template slot="button-content">
-                            <a class="nav-link dropdown-toggle text-dark"
-                               href="#" role="button" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
                                 <img :src="user.photo_url"
                                      class="rounded-circle profile-photo mr-1">
                                 {{ user.name }}
-                            </a>
                         </template>
-                        <b-dropdown-item>
-                            <router-link :to="{ name: 'profile' }"
-                                         class="dropdown-item pl-3">
-                                <!--<fa icon="cog" fixed-width/>-->
-                                settings
-                            </router-link>
-                        </b-dropdown-item>
+                        <router-link :to="{ name: 'profile' }"
+                                     class="dropdown-item pl-3">
+                            <!--<fa icon="cog" fixed-width/>-->
+                            settings
+                        </router-link>
                         <b-dropdown-divider></b-dropdown-divider>
-                        <b-dropdown-item>
-                            <a @click.prevent="logout" class="dropdown-item pl-3"  href="#">
-                                <!--<fa icon="sign-out-alt" fixed-width/>-->
-                                logout
-                            </a>
-                        </b-dropdown-item>
+                        <a @click.prevent="logout" class="dropdown-item pl-3"  href="#">
+                            <!--<fa icon="sign-out-alt" fixed-width/>-->
+                            logout
+                        </a>
                     </b-dropdown>
                     <!-- Guest -->
                     <template v-else>
