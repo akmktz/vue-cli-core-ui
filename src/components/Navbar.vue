@@ -29,18 +29,16 @@
                     <!-- Authenticated -->
                     <b-dropdown variant="1" size="md" text="Large" class="m-2" v-if="user">
                         <template slot="button-content">
-                                <img :src="user.photo_url"
-                                     class="rounded-circle profile-photo mr-1">
-                                {{ user.name }}
+                            <img :src="user.photo_url" class="rounded-circle profile-photo mr-1">
+                            {{ user.name }}
                         </template>
-                        <router-link :to="{ name: 'profile' }"
-                                     class="dropdown-item pl-3">
-                            <!--<fa icon="cog" fixed-width/>-->
+                        <router-link :to="{ name: 'profile' }" class="dropdown-item pl-3">
+                            <v-icon name="cog"/>
                             settings
                         </router-link>
                         <b-dropdown-divider></b-dropdown-divider>
-                        <a @click.prevent="logout" class="dropdown-item pl-3"  href="#">
-                            <!--<fa icon="sign-out-alt" fixed-width/>-->
+                        <a @click.prevent="logout" class="dropdown-item pl-3" href="#">
+                            <v-icon name="sign-out-alt"/>
                             logout
                         </a>
                     </b-dropdown>
