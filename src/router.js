@@ -9,10 +9,10 @@ export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    { path: '/', name: 'home', component: Home },
-    { path: '/about', name: 'about', component: About },
-    { path: '/profile', name: 'profile', component: About },
-    { path: '/login', name: 'login', component: About },
-    { path: '/register', name: 'register', component: About },
+    { path: '/', name: 'home', component: Home, meta: { auth: true } },
+    { path: '/about', name: 'about', component: About, meta: { auth: true }  },
+    { path: '/profile', name: 'profile', component: About, meta: { auth: false }  },
+    { path: '/login', name: 'login', component: About, meta: { auth: false }  },
+    { path: '/register', name: 'register', component: About, meta: { auth: false }  },
   ],
 });
