@@ -8,7 +8,7 @@ export default new Vuex.Store({
     testData: 'Test',
   },
   getters: {
-    getTestData: state => state.testData,
+    getTestData: state => 'testData = ' + state.testData,
   },
   mutations: {
     setTestData(state, value) {
