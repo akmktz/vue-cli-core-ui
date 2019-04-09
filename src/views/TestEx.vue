@@ -12,7 +12,6 @@ import TestExInfo from '@/components/TestExInfo.vue';
 import TestExParent from '@/components/TestExParent.vue';
 
 export default {
-  name: 'home',
   components: {
     TestExInfo,
     TestExParent,
