@@ -10,9 +10,13 @@
   "dependencies": {
     "@websanova/vue-auth": "^2.21.14-beta",
     "bootstrap-vue": "^2.0.0-rc.18",
+    "pusher-js": "^4.4.0",
+    "socket.io-client": "^2.2.0",
     "vue": "^2.5.21",
     "vue-awesome": "^3.3.1",
+    "vue-echo-laravel": "0.0.6",
     "vue-router": "^3.0.1",
+    "vue-socket.io": "^3.0.7",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

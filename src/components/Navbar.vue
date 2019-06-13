@@ -84,6 +84,33 @@ export default {
     },
   },
 
+  // channel: 'update-data-for-user-1',
+  channel: 'private:update-data-for-user-' + '1',
+  echo: {
+    'media-asset-update': (payload, vm) => {
+      console.log('------------------');
+      console.log('Incoming event');
+      console.log(payload);
+      console.log('---------');
+      console.log(vm);
+      console.log('------------------');
+      alert('Incoming event. Details in the console.');
+    },
+  },
+
+  // mounted() {
+  //   const userId = 1;
+  //   // this.$echo.channel('TEST').listen('TEST', function(payload) {
+  //   this.$echo.private('update-data-for-user-' + userId)
+  //     .listen('media-asset-update', function(payload) {
+  //       console.log('------------------');
+  //       console.log('Incoming event');
+  //       console.log(payload);
+  //       console.log('------------------');
+  //       alert('Incoming event. Details in the console.');
+  //     });
+  // },
+
   methods: {
     login() {
       this.$auth.login({
